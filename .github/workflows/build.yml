@@ -35,15 +35,15 @@ jobs:
 
       - name: Entrar al proyecto
         run: |
-          cd PouMemoryBotNuevo/PouMemoryBot
+          cd PouMemoryBot/PouMemoryBot
 
       - name: Crear Gradle Wrapper
-        working-directory: PouMemoryBotNuevo/PouMemoryBot
+        working-directory: PouMemoryBot/PouMemoryBot
         run: |
           gradle wrapper --gradle-version 8.7
 
       - name: Compilar APK
-        working-directory: PouMemoryBotNuevo/PouMemoryBot
+        working-directory: PouMemoryBot/PouMemoryBot
         run: |
           chmod +x ./gradlew
           ./gradlew assembleDebug --no-daemon --stacktrace
@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PouMemoryBot-debug
-          path: PouMemoryBotNuevo/PouMemoryBot/app/build/outputs/apk/debug/*.apk
+          path: PouMemoryBot/PouMemoryBot/app/build/outputs/apk/debug/*.apk
